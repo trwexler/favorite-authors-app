@@ -5,29 +5,9 @@ import {navigate} from '@reach/router'
 
 const InputForm = (props)=>{
 
-    const {submitHandler, author, setAuthor} = props;
+    const {submitHandler, author, setAuthor, inputChange} = props;
     
-    useEffect(()=>{
-        axios.get('http://localhost:8000/api')
-            .then((response)=>{
-                setAuthor(response.data);
-                console.log(response.data);
-            })
-            .catch((err)=>{
-                console.log(err);
-            })
-        },[])
 
-
-    const inputChange = (e) => {
-        console.log("e.target.name:  " + e.target.name);
-        console.log("e.target.value: " + e.target.value);
-    
-        let newStateObject = { ...author }; 
-        newStateObject[e.target.name] = e.target.value;
-        
-        setAuthor(newStateObject);
-      }
 
     return(
         <form onSubmit={submitHandler}>
