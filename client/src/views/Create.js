@@ -22,15 +22,15 @@ const Create = (props)=>{
             })
         },[])
 
-        const createInputChange = (e) => {
-            console.log("e.target.name:  " + e.target.name);
-            console.log("e.target.value: " + e.target.value);
+        // const createInputChange = (e) => {
+        //     console.log("e.target.name:  " + e.target.name);
+        //     console.log("e.target.value: " + e.target.value);
         
-            let newStateObject = { ...newAuthor }; 
-            newStateObject[e.target.name] = e.target.value;
+        //     let newStateObject = { ...newAuthor }; 
+        //     newStateObject[e.target.name] = e.target.value;
     
-            setNewAuthor(newStateObject);
-          }
+        //     setNewAuthor(newStateObject);
+        //   }
     
 
 
@@ -50,7 +50,7 @@ const Create = (props)=>{
         
     return(
         <div>
-            <InputForm author={newAuthor} setAuthor={setNewAuthor} submitHandler={createSubmitHandler} inputChange={createInputChange}/>
+            <InputForm author={newAuthor} setAuthor={setNewAuthor} submitHandler={createSubmitHandler}/>
         </div>
     )
 }

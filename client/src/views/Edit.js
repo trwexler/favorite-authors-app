@@ -22,15 +22,15 @@ const Edit = (props)=>{
             })
         },[])
 
-        const editInputChange = (e) => {
-            console.log("e.target.name:  " + e.target.name);
-            console.log("e.target.value: " + e.target.value);
+        // const editInputChange = (e) => {
+        //     console.log("e.target.name:  " + e.target.name);
+        //     console.log("e.target.value: " + e.target.value);
         
-            let newEditStateObject = {...editAuthor}; 
-            newEditStateObject[e.target.name] = e.target.value;
+        //     let newEditStateObject = {...editAuthor}; 
+        //     newEditStateObject[e.target.name] = e.target.value;
             
-            setEditAuthor(newEditStateObject);
-          }
+        //     setEditAuthor(newEditStateObject);
+        //   }
 
     const editSubmitHandler = (e)=> {
         e.preventDefault();
@@ -53,8 +53,7 @@ const Edit = (props)=>{
     return(
         <div>
             <InputForm author={editAuthor} setAuthor={setEditAuthor}
-                submitHandler={editSubmitHandler} inputChange={editInputChange}
-            />
+            submitHandler={editSubmitHandler}/>
         </div>
 
     )

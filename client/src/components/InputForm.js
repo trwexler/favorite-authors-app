@@ -5,7 +5,17 @@ import {navigate} from '@reach/router'
 
 const InputForm = (props)=>{
 
-    const {submitHandler, author, setAuthor, inputChange} = props;
+    const {submitHandler, author, setAuthor} = props;
+
+    const inputChange = (e) => {
+        console.log("e.target.name:  " + e.target.name);
+        console.log("e.target.value: " + e.target.value);
+    
+        let newStateObject = {...author}; 
+        newStateObject[e.target.name] = e.target.value;
+        
+        setAuthor(newStateObject);
+      }
     
 
 
