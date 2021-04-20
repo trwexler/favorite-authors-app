@@ -22,16 +22,6 @@ const Edit = (props)=>{
             })
         },[])
 
-        // const editInputChange = (e) => {
-        //     console.log("e.target.name:  " + e.target.name);
-        //     console.log("e.target.value: " + e.target.value);
-        
-        //     let newEditStateObject = {...editAuthor}; 
-        //     newEditStateObject[e.target.name] = e.target.value;
-            
-        //     setEditAuthor(newEditStateObject);
-        //   }
-
     const editSubmitHandler = (e)=> {
         e.preventDefault();
         axios.put('http://localhost:8000/api/author/' + props.id , {
@@ -52,7 +42,7 @@ const Edit = (props)=>{
 
     return(
         <div>
-            <InputForm author={editAuthor} setAuthor={setEditAuthor}
+            <InputForm formText={<p>Edit an author:</p>} author={editAuthor} setAuthor={setEditAuthor}
             submitHandler={editSubmitHandler}/>
         </div>
 
