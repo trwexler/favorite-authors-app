@@ -17,8 +17,8 @@ createAuthor: (request, response) => {
             response.json(newAuthor);
             console.log(newAuthor);
         })
-        .catch(err =>{
-            response.json(err);
+        .catch(err =>{ 
+            response.status(400).json(err);
             console.log("Problem in createAuthor");
         });
 },
@@ -29,8 +29,8 @@ viewAllAuthors : (request, response) => {
             console.log(allAuthors);
             response.json(allAuthors);
             })
-        .catch((err)=>{
-            response.json(err);
+        .catch(err =>{
+            response.status(400).json(err);
             console.log("Problem in viewAllAuthors");
         })
 },
@@ -41,8 +41,8 @@ viewOneAuthor : (request, response) => {
             console.log(viewOne);
             response.json(viewOne);
             })
-        .catch((err)=>{
-            response.json(err);
+        .catch(err =>{
+            response.status(400).json(err);
             console.log("Problem in viewAllAuthors");
         })
 },
@@ -58,8 +58,8 @@ updateAuthor : (request, response) => {
             console.log(updatedAuthor);
             response.json(updatedAuthor);
             })
-        .catch((err)=>{
-            response.json(err);
+        .catch(err =>{
+            response.status(400).json(err);
             console.log("Problem in updateAuthor");
         })
 },
@@ -70,8 +70,8 @@ deleteAuthor : (request, response) => {
             console.log(deletedAuthor);
             response.json(deletedAuthor);
             })
-        .catch((err)=>{
-            response.json(err);
+        .catch(err =>{
+            response.status(400).json(err);
             console.log("Problem in deletedAuthor");
         })
 }}

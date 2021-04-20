@@ -11,6 +11,8 @@ const Create = (props)=>{
         lastName: ""
     })
 
+    const [errors, setErrors] = useState([]);
+
     useEffect(()=>{
         axios.get('http://localhost:8000/api')
             .then((response)=>{
@@ -19,6 +21,7 @@ const Create = (props)=>{
             })
             .catch((err)=>{
                 console.log(err);
+                console.log(err.message);
             })
         },[])
 
@@ -32,14 +35,22 @@ const Create = (props)=>{
                 console.log(response.data);
                 navigate("/");
             })
-            .catch((err)=>{
-                console.log(err);
-            })
-        }
+            .catch(err=>{
+                const errorResponse = err.response.data.errors; 
+                const errorArr = []; 
+                for (const key of Object.keys(errorResponse)) { 
+                    errorArr.push(errorResponse[key].message)
+                }
+              
+                setErrors(errorArr);
+            })            
+    }
         
     return(
         <div>
+        
             <InputForm formText={<p>Add an author:</p>} author={newAuthor} setAuthor={setNewAuthor} submitHandler={createSubmitHandler}/>
+            {errors.map((err, index) => <p key={index}>{err}</p>)}
         </div>
     )
 }
